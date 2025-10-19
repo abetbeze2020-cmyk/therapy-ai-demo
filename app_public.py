@@ -93,7 +93,7 @@ if user_input:
 
     # --- Generate AI reply ---
    try:
-    response = openai.ChatCompletion.create(
+   response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=messages
     )
@@ -115,6 +115,7 @@ except Exception as e:
 
 st.markdown("---")
 st.caption("Demo version — messages are not stored. Powered by OpenAI API.")
+
 
 
 
