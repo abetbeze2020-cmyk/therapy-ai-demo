@@ -1,10 +1,11 @@
 # app_public.py
 import streamlit as st
 import datetime as dt
-from openai import OpenAI
+import openai
 
 # --- Streamlit Cloud secrets ---
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+
 
 # --- App title ---
 st.set_page_config(page_title="Therapy Continuity Demo", page_icon="🧠", layout="centered")
@@ -112,3 +113,4 @@ if user_input:
 
 st.markdown("---")
 st.caption("Demo version — messages are not stored. Powered by OpenAI API.")
+
