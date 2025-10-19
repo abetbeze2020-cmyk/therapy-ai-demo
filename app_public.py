@@ -93,11 +93,12 @@ if user_input:
 
     # --- Generate AI reply ---
     try:
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=messages
-        )
-        reply = response.choices[0].message.content.strip()
+        response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=messages
+)
+reply = response["choices"][0]["message"]["content"].strip()
+
     except Exception as e:
         reply = f"⚠️ Error: {e}"
 
@@ -113,4 +114,5 @@ if user_input:
 
 st.markdown("---")
 st.caption("Demo version — messages are not stored. Powered by OpenAI API.")
+
 
